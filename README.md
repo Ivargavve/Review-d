@@ -1,17 +1,18 @@
 # Reviewd
 ### My Project website in the course TDDD27, 2024.
 
-This website will be a platform for students to review courses and share their experiences with other users.
+This website will be a platform for students to review courses and share their experiences with other users. The main goal is for users to go in and read about other peoples reviews on different courses. Comments on each posts will help create discussion around the subject. With the implementation of a lot of different functions such as a like comment system the users will be able to see what students like and not.
 
 ### Overview of project:
 
 Features include: Profiles, profile pages, main page with posts,  search bar, user authentication, login/logout, comments, descriptions, like system, upload profile image and more.
 
 ## Structure
-The project will be developed as a fullstack application.
+The project will be developed as a fullstack application with a server side and a client side. 
 
 ### Backend
 The backend will be developed using NodeJS, Express framework and with MongoDB as the database. Furthermore the following dependencies will be used:
+
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
@@ -24,11 +25,13 @@ The backend will be developed using NodeJS, Express framework and with MongoDB a
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "multer-gridfs-storage": "^5.0.2" 
+    
 Theese files will all be located inside the server folder.
 
 ### Frontend
 The frontend will be developed using React and Redux. Furthermore the following dependencies will be used:
-"@emotion/react": "^11.11.4",
+
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
@@ -47,4 +50,5 @@ The frontend will be developed using React and Redux. Furthermore the following 
     "redux-persist": "^6.0.0",
     "web-vitals": "^2.1.4",
     "yup": "^1.4.0"
+
  Theese files are all located inside the client folder. 
