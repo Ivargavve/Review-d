@@ -1,12 +1,12 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import multer from 'multer';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import path from 'path';
+import express from 'express'; //Express.js framework
+import bodyParser from 'body-parser'; //Parse incoming request bodies in a middleware before your handlers
+import mongoose from 'mongoose'; //MongoDB
+import cors from 'cors'; //Cross-origin resource sharing
+import dotenv from 'dotenv'; //Environment variables
+import multer from 'multer'; //Store files
+import helmet from 'helmet'; //Security
+import morgan from 'morgan'; //HTTP request logger
+import path from 'path'; //Path module
 import { fileURLToPath } from 'url';
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/users.js';
@@ -64,7 +64,7 @@ mongoose.connect(process.env.MONGO_URL, {
         console.log(`Server is running on port ${PORT}`);
     });
 
-    /* ADD DATA */
+    /* JUST ADD THIS ONCE, THEN MONGODB IS SETUP */
     //User.insertMany(users);
     //Post.insertMany(posts);
 
