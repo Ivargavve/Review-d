@@ -1,7 +1,7 @@
 # Reviewd
 ### My Project website in the course TDDD27, 2024.
 
-This website will be a platform for students to review courses and share their experiences with other users. The main goal is for users to go in and read about other peoples reviews on different courses. Comments on each posts will help create discussion around the subject. With the implementation of a lot of different functions such as a like comment system the users will be able to see what students like and not.
+This website will be a platform for students to review courses and share their experiences with other users. The main goal is for users to go in and read about other peoples reviews on different courses. Comments on each posts will help create discussion around the subject. With the implementation of a lot of different functions such as a like comment system the users will be able to see what students like and not. The user will also be able to have a friendslist making it able to see relevant posts and what they liked and so on. 
 
 ### Overview of project:
 
@@ -25,7 +25,7 @@ The backend will be developed using NodeJS, Express framework and with MongoDB a
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
     "multer-gridfs-storage": "^5.0.2" 
-    
+
 Theese files will all be located inside the server folder.
 
 ### Frontend
