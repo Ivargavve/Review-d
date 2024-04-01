@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken'; // Import jwt for token verification
 
 export const verifyToken = async (req, res, next) => {
     try {
