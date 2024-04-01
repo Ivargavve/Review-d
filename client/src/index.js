@@ -6,7 +6,6 @@ import authReducer from './state';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import {
-  perisistStore,
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -17,7 +16,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { PersistGate } from 'redux-persist/integration/react';
-import { getDefaultNormalizer } from '@testing-library/react';
 import persistStore from 'redux-persist/es/persistStore';
 
 /* REDUX AND TOOLKIT SETUP, see their documentation */
