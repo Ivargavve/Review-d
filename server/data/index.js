@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
 
+// just some temporary data to test the API
+// this will be removed later when  
+
 const userIds = [
   new mongoose.Types.ObjectId(),
   new mongoose.Types.ObjectId(),
