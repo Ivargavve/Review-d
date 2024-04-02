@@ -6,8 +6,8 @@ import WidgetUser from "scenes/widgets/wUser";
 const HomePage = () => {
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
     const { _id, picturePath } = useSelector((state) => state.user); 
-
-    return (
+    console.log(picturePath)
+    return ( 
         <Box>
             <Navbar/>
             <Box 

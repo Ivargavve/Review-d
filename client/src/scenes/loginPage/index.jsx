@@ -1,5 +1,6 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Form from "./Form";
+import { Divider } from "@mui/material";
 
 const LoginPage = () => {
   const theme = useTheme();
@@ -14,7 +15,7 @@ const LoginPage = () => {
         boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Review --d
+          logo here
         </Typography>
       </Box>
 
@@ -28,7 +29,13 @@ const LoginPage = () => {
         boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Review, comment on and share your favorite courses. <br /><strong>Welcome to Review --d!</strong>
+          Review, comment on and share your favorite courses.
+        </Typography> 
+        
+        <Divider />
+
+        <Typography fontWeight="600" variant="h3" sx={{ mb: "1.5rem", mt: "1.5rem" }}>
+          Welcome to Review --d!
         </Typography>
         <Form />
       </Box>

@@ -54,7 +54,7 @@ const Navbar = () => {
             },
           }}
         >
-          Review --d
+          logo here
         </Typography>
         {isNonMobileScreens && (
           <Box

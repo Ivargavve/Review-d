@@ -9,11 +9,13 @@ const ImageUser = ({ image, size = "60px" }) => {
         style={{ objectFit: "cover"}}
         width={size}
         height={size}
-        alt="user"
+        alt="image"
         src={`http://localhost:3001/assets/${image}`}
       />
     </Box>
   );
 };
+
+
 
 export default ImageUser;
