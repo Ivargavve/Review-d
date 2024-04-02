@@ -42,8 +42,6 @@ import {
     const {
       firstName,
       lastName,
-      location,
-      occupation,
       viewedProfile,
       impressions,
       friends,
@@ -82,20 +80,6 @@ import {
         <Divider />
   
         {/* SECOND ROW */}
-        <Box p="1rem 0">
-          <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
-            <LocationOnOutlined fontSize="large" sx={{ color: main }} />
-            <Typography color={medium}>{location}</Typography>
-          </Box>
-          <Box display="flex" alignItems="center" gap="1rem">
-            <WorkOutlineOutlined fontSize="large" sx={{ color: main }} />
-            <Typography color={medium}>{occupation}</Typography>
-          </Box>
-        </Box>
-  
-        <Divider />
-  
-        {/* THIRD ROW */}
         <Box p="1rem 0">
           <FlexBetween mb="0.5rem">
             <Typography color={medium}>Who's viewed your profile</Typography>
