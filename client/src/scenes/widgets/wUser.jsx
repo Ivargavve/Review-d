@@ -28,7 +28,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     // GetUser will be called only once when it's first run because of the empty dependency array
     useEffect(() => {
       getUser();
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    }, []);
   
     if (!user) {
       return null;
