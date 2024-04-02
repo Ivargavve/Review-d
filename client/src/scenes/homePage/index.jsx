@@ -11,14 +11,19 @@ const HomePage = () => {
         <Box>
             <Navbar/>
             <Box 
-                width="100%" 
-                padding="2rem 6%"
+                padding="2rem 2rem"
                 display={isNonMobileScreens ? "flex" : "block"}
-                gap="0.5rem"
-                justifyContent="space-between"
+                gap="10%"
+                justifyContent="center"
             >
-                <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
+                <Box flexBasis={isNonMobileScreens ? "30%" : "80%"}>
                     <WidgetUser userId={_id} picturePath={picturePath} />
+                </Box>
+                <Box
+                    flexBasis={isNonMobileScreens ? "50%" : "80%"}
+                    mt={isNonMobileScreens ? undefined : "2rem"}
+                >
+
                 </Box>
             </Box>
         </Box>
