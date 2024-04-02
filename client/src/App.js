@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "scenes/homePage";
 import LoginPage from "scenes/loginPage";
 import ProfilePage from "scenes/profilePage";
@@ -12,9 +12,9 @@ import { themeSettings } from "./theme";
 function App() {
   // Retrieve the current mode (light or dark) from the Redux store
   const mode = useSelector((state) => state.mode);
-
   // Create a memoized theme object using the current mode
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const isAuth = Boolean(useSelector((state) => state.token));
 
   // Render the application with the appropriate theme
   return (
@@ -22,14 +22,9 @@ function App() {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <Routes>
-            {/* Home route */}
             <Route path="/" element={<LoginPage />} />
-
-            {/* Home page route */}
-            <Route path="/home" element={<HomePage />} />
-
-            {/* Profile page route with a dynamic userId parameter */}
-            <Route path="/profile/:userId" element={<ProfilePage />} />
+            <Route path="/home" element={isAuth ? <HomePage /> : <Navigate to="/" />} />
+            <Route path="/profile/:userId" element={isAuth ? <ProfilePage /> : <Navigate to="/" />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
