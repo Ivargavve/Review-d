@@ -62,7 +62,7 @@ mongoose.connect(process.env.MONGO_URL, {
         console.log(`Server is running on port ${PORT}`);
     });
 
-    /* JUST ADD THIS ONCE, THEN MONGODB IS SETUP */
+    /* JUST ADD THIS ONCE, THEN MONGODB IS SETUP WITH TEST USERS AND POSTS */
     //User.insertMany(users);
     //Post.insertMany(posts);
 
