@@ -21,11 +21,11 @@ export const colorTokens = {
     200: "#384538",
     300: "#384538",
     400: "#384538",
-    500: "#384538",
-    600: "#384538",
-    700: "#384538",
-    800: "#384538",
-    900: "#384538",
+    500: "#879687",
+    600: "#879687",
+    700: "#879687",
+    800: "#879687",
+    900: "#879687",
   },
 };
 
@@ -76,7 +76,7 @@ export const themeSettings = (mode) => {
     },
     typography: {
       fontFamily: ["Roboto Mono", "monospace"].join(","),
-      fontSize: 14,
+      fontSize: 11,
       h1: {
         fontFamily: ["Roboto Mono", "monospace"].join(","),
         fontSize: 40,
@@ -91,7 +91,7 @@ export const themeSettings = (mode) => {
       },
       h4: {
         fontFamily: ["Roboto Mono", "monospace"].join(","),
-        fontSize: 20,
+        fontSize: 16,
       },
       h5: {
         fontFamily: ["Roboto Mono", "monospace"].join(","),
