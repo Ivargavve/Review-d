@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   IconButton,
@@ -36,7 +36,6 @@ const Navbar = () => {
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.default;
-
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
+import React, { useEffect } from 'react';
 
 // App component that wraps the entire application
 function App() {
@@ -16,6 +17,17 @@ function App() {
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isAuth = Boolean(useSelector((state) => state.token));
 
+  // Set the document title dynamically
+  const Path = window.location.pathname;
+  const changeTitle = () => {
+    document.title = "Review --d";
+    if (isAuth) {
+      document.title += Path;
+    }
+  }
+  useEffect(() => {
+    changeTitle();
+  });
   // Render the application with the appropriate theme
   return (
     <div className="App">
