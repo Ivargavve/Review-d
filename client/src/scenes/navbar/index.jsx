@@ -41,20 +41,8 @@ const Navbar = () => {
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt} boxShadow="0 0 10px rgba(0, 0, 0, 0.5)" >
-      <FlexBetween gap={"16rem"}>
-        {isNonMobileScreens && (
-          <FlexBetween
-            backgroundColor={neutralLight}
-            gap="3rem"
-            padding="0.1rem 1.5rem"
-          >
-            <InputBase placeholder="Type course here..." />
-            <IconButton>
-              <Search />
-            </IconButton>
-          </FlexBetween>
-        )
-        }<Typography
+      <FlexBetween gap="3rem">
+        <Typography
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
           color="primary"
@@ -68,7 +56,19 @@ const Navbar = () => {
         >
           Review --d
         </Typography>
-        
+        {isNonMobileScreens && (
+          <Box
+            backgroundColor={neutralLight}
+            gap="3rem"
+            padding="0.1rem 1.5rem"
+          >
+            <InputBase placeholder="Type course here..." />
+            <IconButton>
+              <Search />
+            </IconButton>
+          </Box>
+        )
+        }
       </FlexBetween>
 
       {/* DESKTOP NAV */}
