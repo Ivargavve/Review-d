@@ -77,13 +77,13 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
         {/* SECOND ROW */}
         <Box p="1rem 0">
           <FlexBetween mb="0.5rem">
-            <Typography color={medium}>Views</Typography>
+            <Typography color={medium}>Profile views</Typography>
             <Typography color={main} fontWeight="500">
               {viewedProfile}
             </Typography>
           </FlexBetween>
           <FlexBetween>
-            <Typography color={medium}>Post stats</Typography>
+            <Typography color={medium}>Likes</Typography>
             <Typography color={main} fontWeight="500">
               {impressions}
             </Typography>
