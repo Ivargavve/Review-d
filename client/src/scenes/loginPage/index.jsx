@@ -7,10 +7,11 @@ const LoginPage = () => {
   return (
     <Box>
       <Box
-        width="100%"
-        backgroundColor={theme.palette.background.alt}
+        width="88%"
+        backgroundColor={theme.palette.background.default}
         p="1rem 6%"
         textAlign="center"
+        boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
           Review --d
@@ -18,14 +19,16 @@ const LoginPage = () => {
       </Box>
 
       <Box
-        width={isNonMobileScreens ? "50%" : "93%"}
+        width={isNonMobileScreens ? "50%" : "80%"}
         p="2rem"
         m="2rem auto"
-        borderRadius="1.5rem"
-        backgroundColor={theme.palette.background.alt}
+        backgroundColor={theme.palette.background.default}
+        color={theme.palette.neutral.main}
+        textAlign="center"
+        boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Review, comment and share your favorite courses.
+          Review, comment on and share your favorite courses. <br /><strong>Welcome to Review --d!</strong>
         </Typography>
         <Form />
       </Box>
