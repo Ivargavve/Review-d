@@ -21,6 +21,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/flexBetween.jsx";
+<style>
+
+</style>
+
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -47,9 +51,9 @@ const Navbar = () => {
       }}
       >
       <FlexBetween gap="3rem">
-        <Typography
-          fontWeight="bold"
-          fontSize="clamp(1rem, 2rem, 2.25rem)"
+        <Typography 
+          fontFamily='"Pixelify Sans", sans-serif'
+          fontSize="clamp(2rem, 2.2rem, 2.5rem)"
           color="primary"
           onClick={() => navigate("/home")}
           sx={{

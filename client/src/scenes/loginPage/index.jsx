@@ -16,9 +16,11 @@ const LoginPage = () => {
         }}
         p="1rem 6%"
         textAlign="center"
-        boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
       >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
+        <Typography 
+        fontFamily='"Pixelify Sans", sans-serif'
+        fontSize="clamp(2rem, 2.2rem, 2.5rem)" 
+        color="primary">
           Review --d
         </Typography>
       </Box>
@@ -33,7 +35,6 @@ const LoginPage = () => {
         }}
         color={theme.palette.neutral.main}
         textAlign="center"
-        boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           Review, comment on and share your favorite courses.
@@ -50,6 +51,7 @@ const LoginPage = () => {
         color={gray}
         m="2rem"
         textAlign="center"
+        fontFamily='"Pixelify Sans", sans-serif'
         fontSize="clamp(0.75rem, 0.75rem, 1.25rem)"
         
        >

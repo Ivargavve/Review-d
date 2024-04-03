@@ -16,16 +16,16 @@ export const colorTokens = {
     1000: "#000000",
   },
   primary: {
-    50: "#f0ebe6",
-    100: "#f0e5d8",
-    200: "#f0dec9",
-    300: "#f0cfa8",
-    400: "#f0c28b",
-    500: "#f0b369",
-    600: "#f2a74b",
-    700: "#f29d35",
-    800: "#f79925",
-    900: "#f28705",
+    50: "#fffaf5",
+    100: "#fcebd9",
+    200: "#fcdec0",
+    300: "#fac896",
+    400: "#fab36b",
+    500: "#faa148",
+    600: "#f7912a",
+    700: "#f78c20",
+    800: "#fa840f",
+    900: "#fa7e02",
   },
 };
 
@@ -100,6 +100,10 @@ export const themeSettings = (mode) => {
       h6: {
         fontFamily: ["Roboto Mono", "monospace"].join(","),
         fontSize: 14,
+      },
+      h7: {
+        fontFamily: ["Pixelify Sans", "sans-serif"].join(","),
+        fontSize: 22,
       },
     },
   };
