@@ -7,8 +7,6 @@
 
 Features include: Profiles, profile page, main page with posts, login/register page, search bar, user authentication, login/logout, comments, descriptions, like system, upload profile image, theme (light/dark) and more.
 
-Was planning on adding some API's to the project but im unsure at the moment which ones and what they would be used for. Could be a daily quote or motivation statement that would be displayed or something more complicated.
-
 ## Structure
 The project will be developed as a fullstack application with a server side and a client side.
 
