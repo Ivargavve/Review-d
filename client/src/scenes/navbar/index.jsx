@@ -53,7 +53,7 @@ const Navbar = () => {
             },
           }}
         >
-          logo here
+          Review --d
         </Typography>
         {isNonMobileScreens && (
           <Box

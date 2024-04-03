@@ -15,7 +15,7 @@ const LoginPage = () => {
         boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          logo here
+          Review --d
         </Typography>
       </Box>
 
