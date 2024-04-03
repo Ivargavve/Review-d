@@ -16,13 +16,12 @@ import {
   } from "@mui/material";
   import FlexBetween from "components/flexBetween";
   import Dropzone from "react-dropzone";
-  import ImageUser from "components/imageUser";
   import WidgetWrap from "components/widgetWrap";
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
   import { setPosts } from "state";
   
-  const MyPostWidget = ({ picturePath }) => {
+  const MyPostWidget = () => {
     const dispatch = useDispatch();
     const [isImage, setIsImage] = useState(false);
     const [image, setImage] = useState(null);
