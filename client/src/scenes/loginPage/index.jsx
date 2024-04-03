@@ -8,8 +8,8 @@ const LoginPage = () => {
   return (
     <Box>
       <Box
-        width="88%"
-        backgroundColor={theme.palette.background.default}
+        width="100%"
+        backgroundColor={theme.palette.background.alt}
         p="1rem 6%"
         textAlign="center"
         boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
@@ -23,7 +23,7 @@ const LoginPage = () => {
         width={isNonMobileScreens ? "50%" : "80%"}
         p="2rem"
         m="2rem auto"
-        backgroundColor={theme.palette.background.default}
+        backgroundColor={theme.palette.background.alt}
         color={theme.palette.neutral.main}
         textAlign="center"
         boxShadow="0 0 10px rgba(0, 0, 0, 0.5)"
@@ -35,7 +35,7 @@ const LoginPage = () => {
         <Divider />
 
         <Typography fontWeight="600" variant="h3" sx={{ mb: "1.5rem", mt: "1.5rem" }}>
-          Welcome to Review --d!
+          Welcome!
         </Typography>
         <Form />
       </Box>

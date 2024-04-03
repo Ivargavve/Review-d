@@ -11,9 +11,7 @@ import React, { useEffect } from 'react';
 
 // App component that wraps the entire application
 function App() {
-  // Retrieve the current mode (light or dark) from the Redux store
   const mode = useSelector((state) => state.mode);
-  // Create a memoized theme object using the current mode
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   const isAuth = Boolean(useSelector((state) => state.token));
 

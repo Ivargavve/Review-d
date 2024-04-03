@@ -15,6 +15,8 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
+    const background = palette.background.alt;
+    
   
     const getUser = async () => {
       const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -43,7 +45,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     } = user;
   
     return (
-      <WidgetWrap boxShadow="0 0 10px rgba(0, 0, 0, 0.5)">
+      <WidgetWrap>
         {/* FIRST ROW */}
         <FlexBetween
           gap="0.5rem"
