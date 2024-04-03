@@ -1,11 +1,28 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Form from "./Form";
 import { Divider } from "@mui/material";
+import { useState, useEffect } from "react";
 
 const LoginPage = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const gray = theme.palette.neutral.medium;
+
+  // Fetch random quote from the server
+  const [randomQuote, setRandomQuote] = useState('');
+  useEffect(() => {
+    const fetchRandomQuote = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/random-quote');
+        const data = await response.json();
+        setRandomQuote(data.randomQuote);
+      } catch (error) {
+        console.error('Error fetching random quote:', error);
+      }
+    };
+    fetchRandomQuote();
+  }, []);
+
   return (
     <Box>
       <Box
@@ -37,7 +54,7 @@ const LoginPage = () => {
         textAlign="center"
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Review, comment on and share your favorite courses.
+          {randomQuote}
         </Typography> 
         
         <Divider />

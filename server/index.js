@@ -17,6 +17,7 @@ import { verifyToken } from "./middleware/auth.js";
 import User from "./models/user.js";
 import Post from "./models/post.js";
 import { users, posts } from "./data/index.js";
+import fs from 'fs';
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -31,6 +32,10 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+
+const quotes = fs.readFileSync('data/introQuestions.txt', 'utf-8').split('\n');
+const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+console.log(randomQuote);
 
 /* FILE STORAGE */
 const storage = multer.diskStorage({
@@ -52,12 +57,14 @@ app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
+app.get('/random-quote', (req, res) => {
+  res.json({ randomQuote });
+});
+
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;
 mongoose
   .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
