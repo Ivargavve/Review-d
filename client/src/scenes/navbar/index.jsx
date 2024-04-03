@@ -39,7 +39,13 @@ const Navbar = () => {
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
-    <FlexBetween padding="1rem 6%" backgroundColor={alt}>
+    <FlexBetween 
+      padding="1rem 6%" 
+      sx={{
+        backgroundImage: (theme) =>
+          `linear-gradient(to right, ${theme.palette.background.default} 0%, ${theme.palette.background.alt} 100%)`,
+      }}
+      >
       <FlexBetween gap="3rem">
         <Typography
           fontWeight="bold"
@@ -61,7 +67,7 @@ const Navbar = () => {
             gap="3rem"
             padding="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Type course here..." />
+            <InputBase placeholder="TNM111..." />
             <IconButton>
               <Search />
             </IconButton>

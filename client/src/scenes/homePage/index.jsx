@@ -14,27 +14,29 @@ const HomePage = () => {
             <Box 
                 padding="2rem 2rem"
                 display={isNonMobileScreens ? "flex" : "block"}
-                gap="10%"
+                gap="3%"
                 justifyContent="center"
             >
-                <Box flexBasis={isNonMobileScreens ? "30%" : "80%"}>
+                <Box flexBasis={isNonMobileScreens ? "25%" : "60%"}>
                     <WidgetUser userId={_id} picturePath={picturePath} />
                 </Box>
                 <Box
-                    flexBasis={isNonMobileScreens ? "50%" : "80%"}
+                    flexBasis={isNonMobileScreens ? "40%" : "80%"}
                     mt={isNonMobileScreens ? undefined : "2rem"}
                 >
-                    <MyPostWidget picturePath={picturePath} />
                     <PostWidget
                         postId="1"
                         postUserId="1"
                         name="John Doe"
-                        description="This is my first post"
-                        picturePath="post1.jpg"
+                        description='This is my first review here on Review --d. I hope you like it! :) I really like the course and I think you will too!'    
+                        picturePath={picturePath}
                         userPicturePath="user1.jpg"
                         likes={{ "1": true, "2": true }}
                         comments={[]}
                      />
+                </Box>
+                <Box flexBasis={isNonMobileScreens ? "30%" : "60%"}>
+                    <MyPostWidget picturePath={picturePath} />
                 </Box>
             </Box>
         </Box>

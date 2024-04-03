@@ -53,9 +53,9 @@ import {
   
     return (
       <WidgetWrap>
-        <FlexBetween gap="1.5rem">
+        <FlexBetween>
           <InputBase
-            placeholder="What did I think about my last course..."
+            placeholder="my last course was..."
             onChange={(e) => setPost(e.target.value)}
             value={post}
             sx={{
@@ -87,7 +87,7 @@ import {
                   >
                     <input {...getInputProps()} />
                     {!image ? (
-                      <p>Add Image Here</p>
+                      <p>Add reaction here</p>
                     ) : (
                       <FlexBetween>
                         <Typography>{image.name}</Typography>

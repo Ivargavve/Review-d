@@ -46,7 +46,7 @@ import {
     };
   
     return (
-      <WidgetWrap m="2rem 0">
+      <WidgetWrap mb="2rem">
         <Typography color={main} sx={{ mt: "1rem" }}>
           {description}
         </Typography>
@@ -54,7 +54,7 @@ import {
           <img
             width="100%"
             height="auto"
-            alt="post"
+            alt="image"
             style={{ marginTop: "0.75rem" }}
             src={`http://localhost:3001/assets/${picturePath}`}
           />
