@@ -3,6 +3,7 @@ import Navbar from "scenes/navbar";
 import { useSelector } from "react-redux";
 import WidgetUser from "scenes/widgets/wUser";
 import MyPostWidget from "scenes/widgets/myPostWidget";
+import PostWidget from "scenes/widgets/postWidget";
 
 const HomePage = () => {
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
@@ -24,6 +25,16 @@ const HomePage = () => {
                     mt={isNonMobileScreens ? undefined : "2rem"}
                 >
                     <MyPostWidget picturePath={picturePath} />
+                    <PostWidget
+                        postId="1"
+                        postUserId="1"
+                        name="John Doe"
+                        description="This is my first post"
+                        picturePath="post1.jpg"
+                        userPicturePath="user1.jpg"
+                        likes={{ "1": true, "2": true }}
+                        comments={[]}
+                     />
                 </Box>
             </Box>
         </Box>
