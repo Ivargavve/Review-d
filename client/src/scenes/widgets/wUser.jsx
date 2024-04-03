@@ -43,7 +43,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     } = user;
   
     return (
-      <WidgetWrap>
+      <WidgetWrap boxShadow="0 0 10px rgba(0, 0, 0, 0.5)">
         {/* FIRST ROW */}
         <FlexBetween
           gap="0.5rem"

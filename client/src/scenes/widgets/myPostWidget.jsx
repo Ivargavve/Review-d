@@ -55,9 +55,8 @@ import {
     };
   
     return (
-      <WidgetWrap>
+      <WidgetWrap boxShadow="0 0 10px rgba(0, 0, 0, 0.5)">
         <FlexBetween gap="1.5rem">
-          <ImageUser image={picturePath} />
           <InputBase
             placeholder="What did I think about my last course..."
             onChange={(e) => setPost(e.target.value)}
