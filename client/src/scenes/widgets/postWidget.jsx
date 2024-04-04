@@ -52,7 +52,7 @@ import {
         </Typography>
         {picturePath && (
           <img
-            width="100%"
+            width="10%"
             height="auto"
             alt="image"
             style={{ marginTop: "0.75rem" }}

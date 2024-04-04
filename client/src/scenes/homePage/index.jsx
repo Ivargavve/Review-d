@@ -10,7 +10,7 @@ const HomePage = () => {
     const { _id, picturePath } = useSelector((state) => state.user); 
     return ( 
         <Box>
-            <Navbar/>
+            <Navbar />
             <Box 
                 padding="2rem 2rem"
                 display={isNonMobileScreens ? "flex" : "block"}

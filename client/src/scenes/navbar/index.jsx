@@ -11,7 +11,6 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import {
-  Search,
   DarkMode,
   LightMode,
   Menu,
@@ -39,7 +38,6 @@ const Navbar = () => {
   const dark = theme.palette.neutral.dark;
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
-  const alt = theme.palette.background.alt;
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
@@ -73,7 +71,7 @@ const Navbar = () => {
           >
             <InputBase placeholder="TNM111..." />
             <IconButton>
-              <Search />
+            <img src="/orange.png" alt="img" style={{ width: "20px", height: "20px", borderRadius: "50%" }} />
             </IconButton>
           </Box>
         )

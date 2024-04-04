@@ -10,7 +10,6 @@ const LoginPage = () => {
   const gray = theme.palette.neutral.medium;
   const primary = theme.palette.primary.main;
   const dark = theme.palette.neutral.dark;
-  const neutralLight = theme.palette.neutral.light;
 
   // Fetch random quote from the server
   const [randomQuote, setRandomQuote] = useState('');
@@ -74,7 +73,7 @@ const LoginPage = () => {
         <Divider />
 
         <Typography fontWeight="600" variant="h3" sx={{ mb: "1.5rem", mt: "1.5rem" }}>
-          Welcome!
+          <img src="/orange.png" alt="img" style={{ width: "40px", height: "40px", borderRadius: "50%" }} />
         </Typography>
         <Form />
       </Box>
