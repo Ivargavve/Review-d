@@ -34,8 +34,14 @@ app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 
 const quotes = fs.readFileSync('data/introQuestions.txt', 'utf-8').split('\n');
-const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-console.log(randomQuote);
+
+app.get('/random-quote', (req, res) => {
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  if (randomQuote === undefined) { // Sometimes quotes are undefined
+    randomQuote = quotes[0];
+  }
+  res.json({ randomQuote });
+});
 
 /* FILE STORAGE */
 const storage = multer.diskStorage({
@@ -56,10 +62,6 @@ app.post("/posts", verifyToken, upload.single("picture"), createPost);
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
-
-app.get('/random-quote', (req, res) => {
-  res.json({ randomQuote });
-});
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;

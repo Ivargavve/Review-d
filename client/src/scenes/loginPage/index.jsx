@@ -1,12 +1,16 @@
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery, IconButton } from "@mui/material";
 import Form from "./Form";
 import { Divider } from "@mui/material";
 import { useState, useEffect } from "react";
+import ReplayIcon from '@mui/icons-material/Replay';
 
 const LoginPage = () => {
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   const gray = theme.palette.neutral.medium;
+  const primary = theme.palette.primary.main;
+  const dark = theme.palette.neutral.dark;
+  const neutralLight = theme.palette.neutral.light;
 
   // Fetch random quote from the server
   const [randomQuote, setRandomQuote] = useState('');
@@ -37,7 +41,7 @@ const LoginPage = () => {
         <Typography 
         fontFamily='"Pixelify Sans", sans-serif'
         fontSize="clamp(2rem, 2.2rem, 2.5rem)" 
-        color="primary">
+        color={primary}>
           Review --d
         </Typography>
       </Box>
@@ -55,6 +59,16 @@ const LoginPage = () => {
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           {randomQuote}
+          <IconButton>
+            <ReplayIcon 
+              sx={{ cursor: "pointer", 
+              color: dark,
+              ":hover": {color: primary}
+            }} 
+              pd="0.5rem"
+              onClick={() => window.location.reload()} 
+            />
+          </IconButton>
         </Typography> 
         
         <Divider />
