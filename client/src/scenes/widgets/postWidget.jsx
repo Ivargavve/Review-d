@@ -51,13 +51,15 @@ import {
           {description}
         </Typography>
         {picturePath && (
+          <Box style={{ display: "flex", justifyContent: "right"}}>
           <img
-            width="10%"
-            height="auto"
+            width="50px"
+            height="50px"
             alt="image"
-            style={{ marginTop: "0.75rem" }}
+            style={{ marginTop: "0.75rem", borderRadius: "100%" }}
             src={`http://localhost:3001/assets/${picturePath}`}
           />
+          </Box>
         )}
         <FlexBetween mt="0.25rem">
           <FlexBetween gap="1rem">

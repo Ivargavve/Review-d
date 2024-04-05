@@ -45,7 +45,11 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     } = user;
   
     return (
-      <WidgetWrap>
+      <WidgetWrap
+        position="sticky"
+        top={105}
+        zIndex={100}
+      >
         {/* FIRST ROW */}
         <FlexBetween
           gap="0.5rem"

@@ -41,6 +41,11 @@ const Navbar = () => {
   const fullName = `${user.firstName} ${user.lastName}`;
 
   return (
+    <Box 
+      position="sticky"
+      top={0}
+      zIndex={1000}
+    >
     <FlexBetween 
       padding="1rem 6%" 
       sx={{
@@ -190,6 +195,7 @@ const Navbar = () => {
         </Box>
       )}
     </FlexBetween>
+    </Box>
   );
 };
 

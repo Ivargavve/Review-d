@@ -25,16 +25,6 @@ const HomePage = () => {
                     mt={isNonMobileScreens ? undefined : "2rem"}
                 >
                     <PostsWidget userId={_id} />
-                    {/* <PostWidget
-                        postId="1"
-                        postUserId="1"
-                        name="John Doe"
-                        description='This is my first review here on Review --d. I hope you like it! :) I really like the course and I think you will too!'    
-                        picturePath={picturePath}
-                        userPicturePath="user1.jpg"
-                        likes={{ "1": true, "2": true }}
-                        comments={[]}
-                     /> */}
                 </Box>
                 <Box flexBasis={isNonMobileScreens ? "30%" : "60%"}>
                     <MyPostWidget picturePath={picturePath} />

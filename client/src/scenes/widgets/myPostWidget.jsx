@@ -52,7 +52,11 @@ import {
     };
   
     return (
-      <WidgetWrap>
+      <WidgetWrap
+        position="sticky"
+        top={105}
+        zIndex={100}
+      >
         <FlexBetween>
           <InputBase
             placeholder="my last course was..."
