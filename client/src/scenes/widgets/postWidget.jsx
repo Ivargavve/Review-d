@@ -47,6 +47,18 @@ import {
   
     return (
       <WidgetWrap mb="2rem">
+        <Typography>
+        {picturePath && (
+        <img
+          width="30px"
+          height="30px"
+          alt="userImg"
+          style={{ marginTop: "0.75rem" }}
+          src={`http://localhost:3001/assets/${userPicturePath}`}
+        />
+        )}
+        {name}
+        </Typography>
         <Typography color={main} sx={{ mt: "1rem" }}>
           {description}
         </Typography>

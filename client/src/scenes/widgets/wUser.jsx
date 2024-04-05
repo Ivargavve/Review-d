@@ -15,8 +15,6 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
-    const background = palette.background.alt;
-    
   
     const getUser = async () => {
       const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -27,10 +25,9 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
       setUser(data);
     };
   
-    // GetUser will be called only once when it's first run because of the empty dependency array
     useEffect(() => {
       getUser();
-    }, []);
+    });
   
     if (!user) {
       return null;
@@ -47,7 +44,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     return (
       <WidgetWrap
         position="sticky"
-        top={105}
+        top={118}
         zIndex={100}
       >
         {/* FIRST ROW */}

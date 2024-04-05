@@ -11,7 +11,6 @@ import {
     useTheme,
     Button,
     IconButton,
-    useMediaQuery,
   } from "@mui/material";
   import FlexBetween from "components/flexBetween";
   import Dropzone from "react-dropzone";
@@ -54,7 +53,7 @@ import {
     return (
       <WidgetWrap
         position="sticky"
-        top={105}
+        top={118}
         zIndex={100}
       >
         <FlexBetween>
