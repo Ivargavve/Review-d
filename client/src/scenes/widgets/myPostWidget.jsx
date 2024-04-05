@@ -56,6 +56,13 @@ import {
         top={118}
         zIndex={100}
       >
+          <InputBase
+            placeholder="TNM..."
+            sx={{
+              ml: "1rem",
+              width: "50%",
+            }}
+          />
         <FlexBetween>
           <InputBase
             placeholder="my last course was..."

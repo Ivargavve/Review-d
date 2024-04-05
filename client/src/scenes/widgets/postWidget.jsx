@@ -10,6 +10,8 @@ import {
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
   import { setPost } from "state";
+  import ImageUser from "components/imageUser";
+  import { useNavigate } from "react-router-dom";
   
   const PostWidget = ({
     postId,
@@ -31,6 +33,10 @@ import {
     const { palette } = useTheme();
     const main = palette.neutral.main;
     const primary = palette.primary.main;
+    const dark = palette.neutral.dark;
+    const medium = palette.neutral.medium;
+
+    const navigate = useNavigate();
   
     const patchLike = async () => {
       const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
@@ -47,26 +53,40 @@ import {
   
     return (
       <WidgetWrap mb="2rem">
-        <Typography>
-        {picturePath && (
-        <img
-          width="30px"
-          height="30px"
-          alt="userImg"
-          style={{ marginTop: "0.75rem" }}
-          src={`http://localhost:3001/assets/${userPicturePath}`}
-        />
-        )}
-        {name}
-        </Typography>
+        <FlexBetween
+          gap="0.5rem"
+          pb="1.1rem"
+          onClick={() => navigate(`/profile/${postUserId}`)} // navigate to user profile page on click
+        >
+          <FlexBetween gap="1rem">
+            <ImageUser image={userPicturePath} />
+            <Box>
+              <Typography
+                variant="h6"
+                color={dark}
+                fontWeight="500"
+                sx={{
+                  "&:hover": {
+                    color: palette.primary.light,
+                    cursor: "pointer",
+                  },
+                }}
+              >
+                {name}
+              </Typography>
+              <Typography color={medium}>1 hour ago</Typography>
+            </Box>
+          </FlexBetween>
+          <Typography color={main}>...</Typography>
+        </FlexBetween>
         <Typography color={main} sx={{ mt: "1rem" }}>
           {description}
         </Typography>
         {picturePath && (
-          <Box style={{ display: "flex", justifyContent: "right"}}>
+          <Box style={{ display: "flex", justifyContent: "center"}}>
           <img
-            width="50px"
-            height="50px"
+            width="30px"
+            height="30px"
             alt="image"
             style={{ marginTop: "0.75rem", borderRadius: "100%" }}
             src={`http://localhost:3001/assets/${picturePath}`}
