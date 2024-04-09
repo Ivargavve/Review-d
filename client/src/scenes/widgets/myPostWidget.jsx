@@ -60,12 +60,12 @@ import {
         zIndex={100}
       >
           <InputBase
-            placeholder="TNM..."
+            placeholder="TNM... - ..."
             onChange={(e) => setCourse(e.target.value)}
             value={course}
             sx={{
               ml: "1rem",
-              width: "30%",
+              width: "100%",
             }}
           />
         <FlexBetween>

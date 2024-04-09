@@ -6,6 +6,12 @@ export const createPost = async (req, res) => {
   try {
     const { userId, course, description, picturePath } = req.body;
     const user = await User.findById(userId);
+    const timestamp = new Date();
+    const formattedDate = timestamp.toLocaleString('en-US', { 
+      dateStyle: 'medium', 
+      timeStyle: 'medium', 
+      timeZone: 'UTC' 
+    });
     const newPost = new Post({
       userId,
       firstName: user.firstName,
@@ -16,6 +22,7 @@ export const createPost = async (req, res) => {
       picturePath,
       likes: {},
       comments: [],
+      timestamp: formattedDate,
     });
     await newPost.save();
 

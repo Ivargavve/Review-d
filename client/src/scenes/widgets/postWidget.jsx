@@ -12,7 +12,7 @@ import {
   import { setPost } from "state";
   import ImageUser from "components/imageUser";
   import { useNavigate } from "react-router-dom";
-  
+
   const PostWidget = ({
     postId,
     postUserId,
@@ -23,6 +23,7 @@ import {
     userPicturePath,
     likes,
     comments,
+    timestamp,
   }) => {
     const [isComments, setIsComments] = useState(false);
     const dispatch = useDispatch();
@@ -75,10 +76,15 @@ import {
               >
                 {name}
               </Typography>
-              <Typography color={medium}>1 hour ago</Typography>
+              <Typography fontSize="0.55rem" color={medium}>{timestamp}</Typography>
             </Box>
           </FlexBetween>
-          <Typography color={main}>{course}</Typography>
+          <Typography 
+            color={main}
+            fontSize="0.65rem"
+            >
+              {course}
+            </Typography>
         </FlexBetween>
         <Typography color={main} sx={{ mt: "1rem" }}>
           {description}
@@ -124,7 +130,7 @@ import {
             {comments.map((comment, i) => (
               <Box key={`${name}-${i}`}>
                 <Divider />
-                <Typography sx={{ color: main, m: "0.5rem 0", pl: "1rem" }}>
+                <Typography sx={{ color: medium, m: "0.5rem 0", pl: "1rem", fontSize: "0.7rem"}}>
                   {comment}
                 </Typography>
               </Box>
