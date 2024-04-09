@@ -92,10 +92,9 @@ import {
         {picturePath && (
           <Box style={{ display: "flex", justifyContent: "center"}}>
           <img
-            width="30px"
-            height="30px"
+            width="100%"
             alt="img"
-            style={{ marginTop: "0.75rem", borderRadius: "100%" }}
+            style={{ marginTop: "0.75rem" }}
             src={`http://localhost:3001/assets/${picturePath}`}
           />
           </Box>
