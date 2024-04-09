@@ -58,14 +58,14 @@ const LoginPage = () => {
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
           {randomQuote}
-          <IconButton>
+          <IconButton 
+          onClick={() => window.location.reload()} >
             <ReplayIcon 
               sx={{ cursor: "pointer", 
               color: dark,
               ":hover": {color: primary}
             }} 
               pd="0.5rem"
-              onClick={() => window.location.reload()} 
             />
           </IconButton>
         </Typography> 

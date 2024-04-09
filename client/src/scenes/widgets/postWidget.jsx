@@ -17,6 +17,7 @@ import {
     postId,
     postUserId,
     name,
+    course,
     description,
     picturePath,
     userPicturePath,
@@ -77,7 +78,7 @@ import {
               <Typography color={medium}>1 hour ago</Typography>
             </Box>
           </FlexBetween>
-          <Typography color={main}>...</Typography>
+          <Typography color={main}>{course}</Typography>
         </FlexBetween>
         <Typography color={main} sx={{ mt: "1rem" }}>
           {description}
@@ -87,7 +88,7 @@ import {
           <img
             width="30px"
             height="30px"
-            alt="image"
+            alt="img"
             style={{ marginTop: "0.75rem", borderRadius: "100%" }}
             src={`http://localhost:3001/assets/${picturePath}`}
           />

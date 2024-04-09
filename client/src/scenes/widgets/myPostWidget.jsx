@@ -23,6 +23,7 @@ import {
     const dispatch = useDispatch();
     const [isImage, setIsImage] = useState(false);
     const [image, setImage] = useState(null);
+    const [course, setCourse] = useState("");
     const [post, setPost] = useState("");
     const { palette } = useTheme();
     const { _id } = useSelector((state) => state.user);
@@ -33,6 +34,7 @@ import {
     const handlePost = async () => {
       const formData = new FormData();
       formData.append("userId", _id);
+      formData.append("course", course);
       formData.append("description", post);
       if (image) {
         formData.append("picture", image);
@@ -47,6 +49,7 @@ import {
       const posts = await response.json();
       dispatch(setPosts({ posts }));
       setImage(null);
+      setCourse("");
       setPost("");
     };
   
@@ -58,9 +61,11 @@ import {
       >
           <InputBase
             placeholder="TNM..."
+            onChange={(e) => setCourse(e.target.value)}
+            value={course}
             sx={{
               ml: "1rem",
-              width: "50%",
+              width: "30%",
             }}
           />
         <FlexBetween>
@@ -133,7 +138,7 @@ import {
           </FlexBetween>
   
           <Button
-            disabled={!post}
+            disabled={!post || !course}
             onClick={handlePost}
             sx={{
               color: palette.background.alt,
