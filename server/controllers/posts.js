@@ -83,8 +83,10 @@ export const addCommentToPost = async (req, res) => {
     const { id } = req.params;
     const { userId, comment } = req.body;
 
+    const user = await User.findById(userId);
+    const name = `${user.firstName} ${user.lastName}`;
     const post = await Post.findById(id);
-    post.comments.push({ userId, comment });
+    post.comments.push({ name, comment });
 
     const updatedPost = await Post.findByIdAndUpdate(
       id,

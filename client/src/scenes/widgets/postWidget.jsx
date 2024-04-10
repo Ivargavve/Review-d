@@ -162,7 +162,7 @@ import {
               <Box key={`${name}-${i}`}>
                 <Divider />
                 <Typography sx={{ color: medium, m: "0.5rem 0", pl: "1rem", fontSize: "0.7rem"}}>
-                <b>{commentObj.userId}:</b> {commentObj.comment}
+                <b>{commentObj.name}:</b> {commentObj.comment}
                 </Typography>
               </Box>
             ))}

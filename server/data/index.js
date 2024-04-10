@@ -147,11 +147,11 @@ export const posts = [
     ]),
     comments: [
       {
-        userId: userIds[0],
+        name: "League Gamer",
         comment: "I found the Introduction to Data Science course to be a bit too basic for my liking. It would have been better if they delved into more advanced machine learning concepts."
       },
       {
-        userId: userIds[2],
+        name: "Jane Doe",
         comment: "While I understand the sentiment, I think the simplicity of the course was its strength. It laid a solid foundation for beginners without overwhelming them with complex algorithms."
       }
     ],
@@ -175,11 +175,11 @@ export const posts = [
     ]),
     comments: [
       {
-        userId: userIds[7],
+        name: "Anonymous User",
         comment: "I totally agree with the review of the Advanced Python Programming course. It's perfect for someone who wants to take their Python skills to the next level."
       },
       {
-        userId: userIds[2],
+        name: "Some Person",
         comment: "Absolutely! The course structure was well-planned, and the projects were challenging enough to keep me engaged throughout. Plus, the instructor's expertise was evident in every lecture."
       }
     ],
@@ -203,11 +203,11 @@ export const posts = [
     ]),
     comments: [
       {
-        userId: userIds[1],
+        name: "John Doe_42",
         comment: "Digital Marketing Strategies was a game-changer for me. The instructor's expertise and the hands-on approach really helped me level up my marketing skills. Highly recommend it to anyone in the field."
       },
       {
-        userId: userIds[3],
+        name: "Roger Pontare",
         comment: "I couldn't agree more! The course not only covered the theoretical aspects but also provided actionable insights that I could immediately apply to my social media campaigns. Definitely worth the investment."
       }
     ],
@@ -230,15 +230,15 @@ export const posts = [
     ]),
     comments: [
       {
-        userId: userIds[0],
+        name: "Ben Kenobi",
         comment: "Introduction to Web Development was my gateway into the world of coding. The step-by-step guidance and practical exercises helped me build my first website within weeks. Highly recommend it to anyone wanting to learn web development from scratch."
       },
       {
-        userId: userIds[1],
+        name: "Asian boy",
         comment: "While the course covers the basics well, I wish there was more emphasis on modern design principles and frameworks. It felt a bit outdated in terms of the design aspect, but overall, still a solid foundation for beginners."
       },
       {
-        userId: userIds[2],
+        name: "Milf Hunter",
         comment: "As someone who already had some coding experience, I found this course to be a bit slow-paced. However, the thorough explanations and clear examples made it a good refresher for consolidating my knowledge."
       }
     ],
