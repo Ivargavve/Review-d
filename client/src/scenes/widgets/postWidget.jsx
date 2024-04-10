@@ -32,15 +32,15 @@ import {
     const isLiked = Boolean(likes[loggedInUserId]);
     const likeCount = Object.keys(likes).length;
     const [comment, setComment] = useState("");
+    const [copySuccess, setCopySuccess] = useState(false); // State for copying URL to clipboard
   
     const { palette } = useTheme();
     const main = palette.neutral.main;
     const primary = palette.primary.main;
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
-
     const navigate = useNavigate();
-  
+
     const patchLike = async () => {
       const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
         method: "PATCH",
@@ -52,6 +52,14 @@ import {
       });
       const updatedPost = await response.json();
       dispatch(setPost({ post: updatedPost }));
+    };
+    const copyUrlToClipboard = () => {
+      navigator.clipboard.writeText(window.location.href);
+      setCopySuccess(true);
+  
+      setTimeout(() => {
+        setCopySuccess(false);
+      }, 3000);
     };
     const handleKeyPress = async (e) => {
       if (e.key === "Enter") {
@@ -139,11 +147,11 @@ import {
               <Typography>{comments.length}</Typography>
             </FlexBetween>
           </FlexBetween>
-  
-          <IconButton>
-            <ShareOutlined />
-          </IconButton>
-        </FlexBetween>
+          <IconButton onClick={copyUrlToClipboard}>
+          {!copySuccess && <ShareOutlined />}
+        </IconButton>
+        {copySuccess && <Typography variant="body2">URL Copied!</Typography>} {/* Display URL copied message */}
+      </FlexBetween>
         {isComments && (
           <Box mt="0.5rem">
             <InputBase
