@@ -4,7 +4,7 @@ import {
     FavoriteOutlined,
     ShareOutlined,
   } from "@mui/icons-material";
-  import { Box, Divider, IconButton, Typography, useTheme } from "@mui/material";
+  import { Box, Divider, IconButton, Typography, useTheme, InputBase } from "@mui/material";
   import FlexBetween from "components/flexBetween";
   import WidgetWrap from "components/widgetWrap";
   import { useState } from "react";
@@ -126,7 +126,16 @@ import {
         </FlexBetween>
         {isComments && (
           <Box mt="0.5rem">
-            {comments.map((comment, i) => (
+            <InputBase
+            placeholder="write a comment..."
+            sx={{
+              margin: "0.3rem 1rem 0.3rem 1rem",
+              padding: "0.2rem 0.5rem 0.2rem 0.5rem",
+              width: "95%",
+              backgroundColor: palette.neutral.light,
+            }}
+          />
+            {comments.map((comment, i) => ( 
               <Box key={`${name}-${i}`}>
                 <Divider />
                 <Typography sx={{ color: medium, m: "0.5rem 0", pl: "1rem", fontSize: "0.7rem"}}>
