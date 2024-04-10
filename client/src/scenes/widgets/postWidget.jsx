@@ -31,6 +31,7 @@ import {
     const loggedInUserId = useSelector((state) => state.user._id);
     const isLiked = Boolean(likes[loggedInUserId]);
     const likeCount = Object.keys(likes).length;
+    const [comment, setComment] = useState("");
   
     const { palette } = useTheme();
     const main = palette.neutral.main;
@@ -51,6 +52,25 @@ import {
       });
       const updatedPost = await response.json();
       dispatch(setPost({ post: updatedPost }));
+    };
+    const handleKeyPress = async (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        await patchComment();
+      }
+    };
+    const patchComment = async () => {
+      const response = await fetch(`http://localhost:3001/posts/${postId}/comment`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: loggedInUserId, comment: comment }),
+      });
+      const updatedPost = await response.json();
+      dispatch(setPost({ post: updatedPost }));
+      setComment(""); // Clear the comment input after adding the comment
     };
   
     return (
@@ -134,12 +154,15 @@ import {
               width: "95%",
               backgroundColor: palette.neutral.light,
             }}
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            onKeyDown={handleKeyPress}
           />
-            {comments.map((comment, i) => ( 
+            {comments.map((commentObj, i) => ( 
               <Box key={`${name}-${i}`}>
                 <Divider />
                 <Typography sx={{ color: medium, m: "0.5rem 0", pl: "1rem", fontSize: "0.7rem"}}>
-                  {comment}
+                <b>{commentObj.userId}:</b> {commentObj.comment}
                 </Typography>
               </Box>
             ))}

@@ -137,7 +137,7 @@ export const posts = [
     lastName: "Doe_42",
     course: "TNM111 - Introduction to Data Science",
     description: "This course provides a comprehensive introduction to the fundamentals of data science, covering topics such as data manipulation, visualization, and basic machine learning algorithms. The hands-on projects were particularly helpful in reinforcing the concepts learned in lectures.",
-    picturePath: "post1.jpeg",
+    picturePath: "data.png",
     userPicturePath: "p3.jpeg",
     likes: new Map([
       [userIds[0], true],
@@ -146,8 +146,14 @@ export const posts = [
       [userIds[4], true],
     ]),
     comments: [
-      "I found the Introduction to Data Science course to be a bit too basic for my liking. It would have been better if they delved into more advanced machine learning concepts.",
-      "While I understand the sentiment, I think the simplicity of the course was its strength. It laid a solid foundation for beginners without overwhelming them with complex algorithms.",
+      {
+        userId: userIds[0],
+        comment: "I found the Introduction to Data Science course to be a bit too basic for my liking. It would have been better if they delved into more advanced machine learning concepts."
+      },
+      {
+        userId: userIds[2],
+        comment: "While I understand the sentiment, I think the simplicity of the course was its strength. It laid a solid foundation for beginners without overwhelming them with complex algorithms."
+      }
     ],
     timestamp: "Apr 9, 2024, 2:20:01 PM",
   },
@@ -159,7 +165,7 @@ export const posts = [
     course: "TDDD27 - Advanced Python Programming",
     description:
       "As someone with prior Python experience, this course was an excellent opportunity to deepen my understanding of the language. The instructor's explanations were clear, and the assignments pushed me to explore advanced topics like decorators and generators.",
-    picturePath: "post2.jpeg",
+    picturePath: "python.png",
     userPicturePath: "p6.jpeg",
     likes: new Map([
       [userIds[7], true],
@@ -168,8 +174,14 @@ export const posts = [
       [userIds[2], true],
     ]),
     comments: [
-      "I totally agree with the review of the Advanced Python Programming course. It's perfect for someone who wants to take their Python skills to the next level.",
-      "Absolutely! The course structure was well-planned, and the projects were challenging enough to keep me engaged throughout. Plus, the instructor's expertise was evident in every lecture.",
+      {
+        userId: userIds[7],
+        comment: "I totally agree with the review of the Advanced Python Programming course. It's perfect for someone who wants to take their Python skills to the next level."
+      },
+      {
+        userId: userIds[2],
+        comment: "Absolutely! The course structure was well-planned, and the projects were challenging enough to keep me engaged throughout. Plus, the instructor's expertise was evident in every lecture."
+      }
     ],
     timestamp: "Apr 4, 2024, 1:50:49 AM",
   },
@@ -181,7 +193,7 @@ export const posts = [
     course: "TNM222 - Digital Marketing Strategies",
     description:
       "This course offered valuable insights into the world of digital marketing, covering topics such as SEO, social media marketing, and email campaigns. The real-world examples provided a practical understanding of how to implement these strategies effectively.",
-    picturePath: "post3.jpeg",
+    picturePath: "marketing.jpeg",
     userPicturePath: "p5.jpeg",
     likes: new Map([
       [userIds[1], true],
@@ -190,8 +202,14 @@ export const posts = [
       [userIds[5], true],
     ]),
     comments: [
-      "Digital Marketing Strategies was a game-changer for me. The instructor's expertise and the hands-on approach really helped me level up my marketing skills. Highly recommend it to anyone in the field.",
-      "I couldn't agree more! The course not only covered the theoretical aspects but also provided actionable insights that I could immediately apply to my social media campaigns. Definitely worth the investment.",
+      {
+        userId: userIds[1],
+        comment: "Digital Marketing Strategies was a game-changer for me. The instructor's expertise and the hands-on approach really helped me level up my marketing skills. Highly recommend it to anyone in the field."
+      },
+      {
+        userId: userIds[3],
+        comment: "I couldn't agree more! The course not only covered the theoretical aspects but also provided actionable insights that I could immediately apply to my social media campaigns. Definitely worth the investment."
+      }
     ],
     timestamp: "Mar 27, 2024, 5:19:01 PM",
   },
@@ -203,7 +221,7 @@ export const posts = [
     course: "TNM333 - Web Development Fundamentals",
     description:
       "This course offers a comprehensive introduction to web development, covering HTML, CSS, and JavaScript from scratch. The interactive tutorials and guided projects provide a hands-on learning experience, making it suitable for beginners looking to start a career in web development.",
-    picturePath: "post4.jpeg",
+    picturePath: "code.jpeg",
     userPicturePath: "p7.jpeg",
     likes: new Map([
       [userIds[1], true],
@@ -211,9 +229,18 @@ export const posts = [
       [userIds[3], true],
     ]),
     comments: [
-      "Introduction to Web Development was my gateway into the world of coding. The step-by-step guidance and practical exercises helped me build my first website within weeks. Highly recommend it to anyone wanting to learn web development from scratch.",
-      "While the course covers the basics well, I wish there was more emphasis on modern design principles and frameworks. It felt a bit outdated in terms of the design aspect, but overall, still a solid foundation for beginners.",
-      "I'm boredAs someone who already had some coding experience, I found this course to be a bit slow-paced. However, the thorough explanations and clear examples made it a good refresher for consolidating my knowledge.",
+      {
+        userId: userIds[0],
+        comment: "Introduction to Web Development was my gateway into the world of coding. The step-by-step guidance and practical exercises helped me build my first website within weeks. Highly recommend it to anyone wanting to learn web development from scratch."
+      },
+      {
+        userId: userIds[1],
+        comment: "While the course covers the basics well, I wish there was more emphasis on modern design principles and frameworks. It felt a bit outdated in terms of the design aspect, but overall, still a solid foundation for beginners."
+      },
+      {
+        userId: userIds[2],
+        comment: "As someone who already had some coding experience, I found this course to be a bit slow-paced. However, the thorough explanations and clear examples made it a good refresher for consolidating my knowledge."
+      }
     ],
     timestamp: "Jan 1, 2024, 1:10:01 AM",
   },
