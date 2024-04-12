@@ -10,7 +10,6 @@ import {
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
   import { setPost } from "state";
-  import ImageUser from "components/imageUser";
   import { useNavigate } from "react-router-dom";
   import Friend from "components/friend";
 
