@@ -33,7 +33,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
       return null;
     }
   
-    const {
+    let {
       firstName,
       lastName,
       viewedProfile,
@@ -86,7 +86,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
             </Typography>
           </FlexBetween>
           <FlexBetween>
-            <Typography color={medium}>Likes</Typography>
+            <Typography color={medium}>Impressions</Typography>
             <Typography color={main} fontWeight="500">
               {impressions}
             </Typography>

@@ -12,6 +12,7 @@ import {
   import { setPost } from "state";
   import ImageUser from "components/imageUser";
   import { useNavigate } from "react-router-dom";
+  import Friend from "components/friend";
 
   const PostWidget = ({
     postId,
@@ -83,37 +84,12 @@ import {
   
     return (
       <WidgetWrap mb="2rem">
-        <FlexBetween
-          gap="0.5rem"
-          pb="1.1rem"
-          onClick={() => navigate(`/profile/${postUserId}`)} // navigate to user profile page on click
-        >
-          <FlexBetween gap="1rem">
-            <ImageUser image={userPicturePath} />
-            <Box>
-              <Typography
-                variant="h6"
-                color={dark}
-                fontWeight="500"
-                sx={{
-                  "&:hover": {
-                    color: palette.primary.light,
-                    cursor: "pointer",
-                  },
-                }}
-              >
-                {name}
-              </Typography>
-              <Typography fontSize="0.55rem" color={medium}>{timestamp}</Typography>
-            </Box>
-          </FlexBetween>
-          <Typography 
-            color={main}
-            fontSize="0.65rem"
-            >
-              {course}
-            </Typography>
-        </FlexBetween>
+        <Friend
+        friendId={postUserId}
+        name={name}
+        subtitle={course}
+        userPicturePath={userPicturePath}
+      />
         <Typography color={main} sx={{ mt: "1rem" }}>
           {description}
         </Typography>
@@ -127,6 +103,7 @@ import {
           />
           </Box>
         )}
+        <Typography margin="0.3rem" fontSize="0.55rem" color={medium}>{timestamp}</Typography>
         <FlexBetween mt="0.25rem">
           <FlexBetween gap="1rem">
             <FlexBetween gap="0.3rem">
