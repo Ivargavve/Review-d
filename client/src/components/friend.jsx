@@ -72,7 +72,9 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
       {icon && (
       <IconButton
         onClick={() => patchFriend()}
-        sx={{ backgroundColor: primaryLight, p: "0.6rem" }}
+        sx={{ 
+          background: `radial-gradient(circle, ${primaryLight} 0%, rgba(0, 0, 0, 0) 80%)`, // Circular gradient fading out to transparent
+          p: "0.5rem" }}
       >
         {icon}
       </IconButton>

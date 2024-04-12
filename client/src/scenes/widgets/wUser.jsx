@@ -6,6 +6,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
   import { useSelector } from "react-redux";
   import { useEffect, useState } from "react";
   import { useNavigate } from "react-router-dom";
+  import FriendList from "scenes/widgets/friendList";
   
   const WidgetUser = ({ userId, picturePath }) => {
     const [user, setUser] = useState(null);
@@ -15,6 +16,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
+    const { _id } = useSelector((state) => state.user); 
   
     const getUser = async () => {
       const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -94,6 +96,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
         </Box>
   
         <Divider />
+        <FriendList userId={_id} />
       </WidgetWrap>
     );
   };
