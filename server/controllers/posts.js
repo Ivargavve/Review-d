@@ -60,10 +60,14 @@ export const likePost = async (req, res) => {
     const { userId } = req.body;
     const post = await Post.findById(id);
     const isLiked = post.likes.get(userId);
+    // Find the user who owns the post
+    const postOwner = await User.findById(post.userId);
 
     if (isLiked) {
       post.likes.delete(userId);
+      postOwner.impressions--;
     } else {
+      postOwner.impressions++;
       post.likes.set(userId, true);
     }
 
@@ -72,6 +76,7 @@ export const likePost = async (req, res) => {
       { likes: post.likes },
       { new: true }
     );
+    await postOwner.save();
     res.status(200).json(updatedPost);
   } catch (err) {
     res.status(404).json({ message: err.message });
@@ -86,12 +91,18 @@ export const addCommentToPost = async (req, res) => {
     const name = `${user.firstName} ${user.lastName}`;
     const post = await Post.findById(id);
     post.comments.push({ name, comment });
+    
+    // Increment impressions count for the user whose post is commented on
+    const postOwner = await User.findById(post.userId);
+    postOwner.impressions++;
 
     const updatedPost = await Post.findByIdAndUpdate(
       id,
       { comments: post.comments },
       { new: true }
     );
+
+    await postOwner.save();
 
     res.status(200).json(updatedPost);
   } catch (err) {

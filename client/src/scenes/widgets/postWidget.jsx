@@ -49,7 +49,6 @@ import {
       });
       const updatedPost = await response.json();
       dispatch(setPost({ post: updatedPost }));
-      patchImpressions();
     };
     const patchImpressions = async () => {
       const response = await fetch(`http://localhost:3001/users/${postUserId}/impression`, {
@@ -89,7 +88,7 @@ import {
       dispatch(setPost({ post: updatedPost }));
       setComment(""); // Clear the comment input after adding the comment
     };
-  
+
     return (
       <WidgetWrap mb="2rem">
         <Friend
@@ -132,7 +131,10 @@ import {
               <Typography>{comments.length}</Typography>
             </FlexBetween>
           </FlexBetween>
-          <IconButton onClick={copyUrlToClipboard}>
+          <IconButton onClick={() => {
+            copyUrlToClipboard();
+            patchImpressions();
+          }}>
           {!copySuccess && <ShareOutlined />}
         </IconButton>
         {copySuccess && <Typography variant="body2">URL Copied!</Typography>} {/* Display URL copied message */}
