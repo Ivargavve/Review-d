@@ -62,3 +62,25 @@ export const addRemoveFriend = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+export const updateImpressions = async (req, res) => {
+  try {
+    const { postUserId } = req.params;
+    const user = await User.findById(postUserId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Increment impressions count by 1
+    user.impressions += 1;
+    await user.save();
+
+    const updatedUser = await User.findById(postUserId);
+
+    return res.status(200).json(updatedUser);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+};

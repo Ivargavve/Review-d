@@ -1,6 +1,5 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import Friend from "components/friend";
-import WidgetWrap from "components/widgetWrap";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setFriends } from "state";
@@ -43,7 +42,7 @@ const FriendList = ({ userId }) => {
             key={friend._id}
             friendId={friend._id}
             name={`${friend.firstName} ${friend.lastName}`}
-            subtitle={friend.occupation}
+            subtitle={"new"}
             userPicturePath={friend.picturePath}
           />
         ))}

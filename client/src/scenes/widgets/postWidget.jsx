@@ -9,8 +9,7 @@ import {
   import WidgetWrap from "components/widgetWrap";
   import { useState } from "react";
   import { useDispatch, useSelector } from "react-redux";
-  import { setPost } from "state";
-  import { useNavigate } from "react-router-dom";
+  import { setPost, setImpressions } from "state";
   import Friend from "components/friend";
 
   const PostWidget = ({
@@ -37,9 +36,7 @@ import {
     const { palette } = useTheme();
     const main = palette.neutral.main;
     const primary = palette.primary.main;
-    const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
-    const navigate = useNavigate();
 
     const patchLike = async () => {
       const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
@@ -52,6 +49,18 @@ import {
       });
       const updatedPost = await response.json();
       dispatch(setPost({ post: updatedPost }));
+      patchImpressions();
+    };
+    const patchImpressions = async () => {
+      const response = await fetch(`http://localhost:3001/users/${postUserId}/impression`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      dispatch(setImpressions({ impressions: data }));
     };
     const copyUrlToClipboard = () => {
       navigator.clipboard.writeText(window.location.href);

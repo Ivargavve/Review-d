@@ -11,6 +11,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
+    // Reducer functions to update state based on dispatched actions
     setMode: (state) => {
       state.mode = state.mode === "light" ? "dark" : "light";
     },
@@ -29,6 +30,13 @@ export const authSlice = createSlice({
         console.error("user friends non-existent :(");
       }
     },
+    setImpressions: (state, action) => {
+      if (state.user) {
+        state.user.impressions = action.payload.impressions;
+      } else {
+        console.error("user impressions non-existent :(");
+      }
+    },
     setPosts: (state, action) => {
       state.posts = action.payload.posts;
     },
@@ -42,6 +50,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost } =
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setImpressions } =
   authSlice.actions;
 export default authSlice.reducer;
