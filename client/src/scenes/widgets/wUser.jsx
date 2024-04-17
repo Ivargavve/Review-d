@@ -3,12 +3,14 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
   import ImageUser from "components/imageUser";
   import FlexBetween from "components/flexBetween";
   import WidgetWrap from "components/widgetWrap";
-  import { useSelector } from "react-redux";
+  import { useDispatch, useSelector } from "react-redux";
   import { useEffect, useState } from "react";
   import { useNavigate } from "react-router-dom";
   import FriendList from "scenes/widgets/friendList";
+  import { setViews } from "state";
   
   const WidgetUser = ({ userId, picturePath }) => {
+    const dispatch = useDispatch();
     const [user, setUser] = useState(null);
     const { palette } = useTheme();
     const navigate = useNavigate();
@@ -17,6 +19,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
     const { _id } = useSelector((state) => state.user); 
+    const friendId = userId;
   
     const getUser = async () => {
       const response = await fetch(`http://localhost:3001/users/${userId}`, {
@@ -25,6 +28,18 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
       });
       const data = await response.json();
       setUser(data);
+    };
+
+    const patchProfileViews = async () => {
+      const response = await fetch(`http://localhost:3001/users/${friendId}/view`, {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      dispatch(setViews({ viewedProfile: data }));
     };
   
     useEffect(() => {
@@ -53,8 +68,11 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
         <FlexBetween
           gap="0.5rem"
           pb="1.1rem"
-          onClick={() => navigate(`/profile/${userId}`)} // navigate to user profile page on click
-        >
+          onClick={() => {
+            navigate(`/profile/${userId}`);
+            patchProfileViews();
+          }}
+          >
           <FlexBetween gap="1rem">
             <ImageUser image={picturePath} />
             <Box>

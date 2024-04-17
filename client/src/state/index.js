@@ -37,6 +37,9 @@ export const authSlice = createSlice({
         console.error("user impressions non-existent :(");
       }
     },
+    setViews: (state, action) => {
+      state.user.viewedProfile = action.payload.viewedProfile;
+    },
     setPosts: (state, action) => {
       state.posts = action.payload.posts;
     },
@@ -50,6 +53,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setImpressions } =
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setImpressions, setViews } =
   authSlice.actions;
 export default authSlice.reducer;

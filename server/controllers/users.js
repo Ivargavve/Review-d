@@ -84,3 +84,24 @@ export const updateImpressions = async (req, res) => {
     return res.status(500).json({ message: 'Internal server error' });
   }
 };
+export const updateProfileViews = async (req, res) => {
+  try {
+    const { friendId } = req.params;
+    const user = await User.findById(friendId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Increment profile views count by 1
+    user.viewedProfile += 1;
+    await user.save();
+
+    const updatedUser = await User.findById(friendId);
+
+    return res.status(200).json(updatedUser);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ message: 'Internal server error' });
+  }
+};

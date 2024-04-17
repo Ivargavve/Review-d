@@ -2,7 +2,7 @@ import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setFriends } from "state";
+import { setFriends, setViews } from "state";
 import FlexBetween from "./flexBetween";
 import ImageUser from "./imageUser";
 
@@ -40,6 +40,17 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
     const data = await response.json();
     dispatch(setFriends({ friends: data }));
   };
+  const patchProfileViews = async () => {
+    const response = await fetch(`http://localhost:3001/users/${friendId}/view`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    dispatch(setViews({ viewedProfile: data }));
+  };
 
   return (
     <FlexBetween>
@@ -49,6 +60,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
           onClick={() => {
             navigate(`/profile/${friendId}`);
             navigate(0);
+            patchProfileViews();
           }}
         >
           <Typography
