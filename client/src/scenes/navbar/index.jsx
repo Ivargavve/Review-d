@@ -17,7 +17,7 @@ import {
   Close,
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogout } from "state";
+import { setMode, setLogout, setSearchInput } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/flexBetween.jsx";
 <style>
@@ -30,6 +30,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
+  const [inputValue, setInputValue] = useState(''); // Local state for input value
   const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
 
   // setup theme colors
@@ -39,6 +40,18 @@ const Navbar = () => {
   const background = theme.palette.background.default;
   const primaryLight = theme.palette.primary.light;
   const fullName = `${user.firstName} ${user.lastName}`;
+
+  const handleSearchInputChange = (e) => {
+    setInputValue(e.target.value); // Update local state for input value
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      console.log('Enter key pressed: ' + inputValue);
+      dispatch(setSearchInput(inputValue)); // Set search input value when Enter is pressed
+      setInputValue(''); // Clear the local input value state
+    }
+  };
 
   return (
     <Box 
@@ -74,7 +87,12 @@ const Navbar = () => {
             gap="3rem"
             padding="0.1rem 1.5rem"
           >
-            <InputBase placeholder="TNM111..." />
+            <InputBase 
+              placeholder="TNM111..."
+              value={inputValue}
+              onChange={handleSearchInputChange} // Update local input value
+              onKeyDown={handleKeyPress} // Call function when Enter key is pressed
+            />
             <IconButton>
             <img src="/orange.png" alt="img" style={{ width: "20px", height: "20px", borderRadius: "50%" }} />
             </IconButton>

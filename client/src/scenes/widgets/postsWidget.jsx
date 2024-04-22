@@ -7,6 +7,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
+  const searchInput = useSelector((state) => state.searchInput);
 
   const getPosts = async () => {
     const response = await fetch("http://localhost:3001/posts", {
@@ -37,6 +38,10 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    console.log("searchInput: ", searchInput);
+  }, [searchInput]); // Add searchInput as a dependency
+  
   return (
     <>
       {posts.slice().reverse().map(
