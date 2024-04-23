@@ -24,7 +24,6 @@ import FlexBetween from "components/flexBetween.jsx";
 
 </style>
 
-
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
@@ -45,12 +44,20 @@ const Navbar = () => {
     setInputValue(e.target.value); // Update local state for input value
   };
 
+  const handleSearch = () => {
+    console.log('Enter key pressed: ' + inputValue);
+    dispatch(setSearchInput({ searchInput: inputValue })); // Dispatch action to update global state
+    setInputValue(''); // Clear the local input value state
+  };
+  
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      console.log('Enter key pressed: ' + inputValue);
-      dispatch(setSearchInput(inputValue)); // Set search input value when Enter is pressed
-      setInputValue(''); // Clear the local input value state
+      handleSearch();
     }
+  };
+  
+  const handleIconClick = () => {
+    handleSearch();
   };
 
   return (
@@ -93,7 +100,7 @@ const Navbar = () => {
               onChange={handleSearchInputChange} // Update local input value
               onKeyDown={handleKeyPress} // Call function when Enter key is pressed
             />
-            <IconButton>
+            <IconButton onClick={handleIconClick}>
             <img src="/orange.png" alt="img" style={{ width: "20px", height: "20px", borderRadius: "50%" }} />
             </IconButton>
           </Box>

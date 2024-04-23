@@ -39,8 +39,30 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    console.log("searchInput: ", searchInput);
-  }, [searchInput]); // Add searchInput as a dependency
+    console.log(searchInput);
+    // Check if searchInput is empty
+    if (searchInput.trim() === "") {
+      // If searchInput is empty, fetch all posts
+      if (isProfile) {
+        getUserPosts();
+      } else {
+        getPosts();
+      }
+    } else {
+      // Filter posts based on searchInput
+      // Assuming you have a property in each post called 'description' to search from
+      const filteredPosts = posts.filter(post =>
+        post.description.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      // Compare filteredPosts with current posts to avoid unnecessary dispatch
+      if (JSON.stringify(filteredPosts) !== JSON.stringify(posts)) {
+        // Dispatch action to update posts with filteredPosts
+        dispatch(setPosts({ posts: filteredPosts }));
+      }
+    }
+  }, [searchInput, posts, dispatch, isProfile]); // eslint-disable-line react-hooks/exhaustive-deps
+  
+  
   
   return (
     <>
