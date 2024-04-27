@@ -117,7 +117,7 @@ export const users = [
     _id: userIds[7],
     firstName: "Jessica",
     lastName: "Dunn",
-    email: "jessicadunn@gmail.com",
+    email: "jessica@mail.com",
     password: "$2b$10$dsasdgsagasda//G9JxQ4bQ8KXf4OAIe/X/AK9skyWUy",
     picturePath: "p9.jpeg",
     friends: [],
@@ -133,8 +133,8 @@ export const posts = [
   {
     _id: new mongoose.Types.ObjectId(),
     userId: userIds[1],
-    firstName: "John",
-    lastName: "Doe_42",
+    firstName: "Steve",
+    lastName: "Ralph",
     course: "TNM111 - Introduction to Data Science",
     description: "This course provides a comprehensive introduction to the fundamentals of data science, covering topics such as data manipulation, visualization, and basic machine learning algorithms. The hands-on projects were particularly helpful in reinforcing the concepts learned in lectures.",
     picturePath: "data.png",
@@ -147,11 +147,11 @@ export const posts = [
     ]),
     comments: [
       {
-        name: "League Gamer",
+        name: "Carley Vowel",
         comment: "I found the Introduction to Data Science course to be a bit too basic for my liking. It would have been better if they delved into more advanced machine learning concepts."
       },
       {
-        name: "Jane Doe",
+        name: "Jessica Dunn",
         comment: "While I understand the sentiment, I think the simplicity of the course was its strength. It laid a solid foundation for beginners without overwhelming them with complex algorithms."
       }
     ],
@@ -175,11 +175,11 @@ export const posts = [
     ]),
     comments: [
       {
-        name: "Anonymous User",
+        name: "Bobbi Marley99",
         comment: "I totally agree with the review of the Advanced Python Programming course. It's perfect for someone who wants to take their Python skills to the next level."
       },
       {
-        name: "Some Person",
+        name: "Emelie Jackson",
         comment: "Absolutely! The course structure was well-planned, and the projects were challenging enough to keep me engaged throughout. Plus, the instructor's expertise was evident in every lecture."
       }
     ],
@@ -188,8 +188,8 @@ export const posts = [
   {
     _id: new mongoose.Types.ObjectId(),
     userId: userIds[4],
-    firstName: "Marketing",
-    lastName: "Guru_25",
+    firstName: "Harvey",
+    lastName: "Dunn",
     course: "TNM222 - Digital Marketing Strategies",
     description:
       "This course offered valuable insights into the world of digital marketing, covering topics such as SEO, social media marketing, and email campaigns. The real-world examples provided a practical understanding of how to implement these strategies effectively.",
@@ -203,11 +203,11 @@ export const posts = [
     ]),
     comments: [
       {
-        name: "John Doe_42",
+        name: "Ivar Gavelin",
         comment: "Digital Marketing Strategies was a game-changer for me. The instructor's expertise and the hands-on approach really helped me level up my marketing skills. Highly recommend it to anyone in the field."
       },
       {
-        name: "Roger Pontare",
+        name: "Steve Ralph",
         comment: "I couldn't agree more! The course not only covered the theoretical aspects but also provided actionable insights that I could immediately apply to my social media campaigns. Definitely worth the investment."
       }
     ],
@@ -216,8 +216,8 @@ export const posts = [
   {
     _id: new mongoose.Types.ObjectId(),
     userId: userIds[5],
-    firstName: "Harvey",
-    lastName: "Dunn",
+    firstName: "Carley",
+    lastName: "Vowel",
     course: "TNM333 - Web Development Fundamentals",
     description:
       "This course offers a comprehensive introduction to web development, covering HTML, CSS, and JavaScript from scratch. The interactive tutorials and guided projects provide a hands-on learning experience, making it suitable for beginners looking to start a career in web development.",
@@ -230,15 +230,15 @@ export const posts = [
     ]),
     comments: [
       {
-        name: "Ben Kenobi",
+        name: "Steve Ralph",
         comment: "Introduction to Web Development was my gateway into the world of coding. The step-by-step guidance and practical exercises helped me build my first website within weeks. Highly recommend it to anyone wanting to learn web development from scratch."
       },
       {
-        name: "Asian boy",
+        name: "Harvey Dunn",
         comment: "While the course covers the basics well, I wish there was more emphasis on modern design principles and frameworks. It felt a bit outdated in terms of the design aspect, but overall, still a solid foundation for beginners."
       },
       {
-        name: "Milf Hunter",
+        name: "Nerd Alert42",
         comment: "As someone who already had some coding experience, I found this course to be a bit slow-paced. However, the thorough explanations and clear examples made it a good refresher for consolidating my knowledge."
       }
     ],
