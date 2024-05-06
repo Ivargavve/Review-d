@@ -18,34 +18,48 @@ const PostsWidget = ({ userId, isProfile }) => {
     dispatch(setPosts({ posts: data }));
   };
 
-  // const getUserPosts = async () => {
-  //   const response = await fetch(
-  //     `http://localhost:3001/posts/${userId}`,
-  //     {
-  //       method: "GET",
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     }
-  //   );
-  //   const data = await response.json();
-  //   dispatch(setPosts({ posts: data }));
-  // };
+  const getUserPosts = async () => {
+    const response = await fetch(
+      `http://localhost:3001/posts/${userId}`,
+      {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    const data = await response.json();
+    dispatch(setPosts({ posts: data }));
+  };
 
   useEffect(() => {
     if (isProfile) {
-      getPosts();
+      getUserPosts();
     } else {
       getPosts();
     } // eslint-disable-next-line
-  },  [isProfile, userId]); // eslint-disable-line react-hooks/exhaustive-deps
+  },  [isProfile]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
-    // Filter posts based on searchInput
-    const filteredPosts = posts.filter(post =>
-      post.description.toLowerCase().includes(searchInput.toLowerCase())
-    );
-    // Update posts in store with filteredPosts
-    dispatch(setPosts({ posts: filteredPosts })); // eslint-disable-next-line
-  }, [searchInput, dispatch, isProfile]); // Include isProfile as a dependency
+    if (searchInput.trim() === "") {
+      // If searchInput is empty, fetch all posts
+      if (isProfile) {
+        getUserPosts();
+      } else {
+        getPosts();
+      }
+    } else {
+      // Filter posts based on searchInput
+      // Assuming you have a property in each post called 'description' to search from
+      const filteredPosts = posts.filter(post =>
+        post.description.toLowerCase().includes(searchInput.toLowerCase())
+      );
+      // Compare filteredPosts with current posts to avoid unnecessary dispatch
+      if (JSON.stringify(filteredPosts) !== JSON.stringify(posts)) {
+        // Dispatch action to update posts with filteredPosts
+        dispatch(setPosts({ posts: filteredPosts }));
+      }
+    }
+  }, [searchInput, posts, dispatch, isProfile]); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   return (
     <>
