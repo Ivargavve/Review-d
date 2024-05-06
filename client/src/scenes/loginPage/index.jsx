@@ -10,9 +10,8 @@ const LoginPage = () => {
   const gray = theme.palette.neutral.medium;
   const primary = theme.palette.primary.main;
   const dark = theme.palette.neutral.dark;
-
-  // Fetch random quote from the server
   const [randomQuote, setRandomQuote] = useState('');
+
   useEffect(() => {
     const fetchRandomQuote = async () => {
       try {
