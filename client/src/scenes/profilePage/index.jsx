@@ -7,9 +7,9 @@ import PostsWidget from "scenes/widgets/postsWidget";
 import { useMediaQuery } from "@mui/material";
 
 const ProfilePage = () => {
-    const { picturePath } = useSelector((state) => state.user); 
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
     const friendId = useSelector((state) => state.friendId);
+    const friendImagePath = useSelector((state) => state.friendImagePath);
 
     return (
         <Box>
@@ -21,7 +21,7 @@ const ProfilePage = () => {
                 justifyContent="center"
             >
                 <Box flexBasis={isNonMobileScreens ? "25%" : "60%"}>
-                    <WidgetUser userId={friendId} picturePath={picturePath} />
+                    <WidgetUser userId={friendId} picturePath={friendImagePath} />
                     {isNonMobileScreens && (
                  <Box flexBasis="26%">
                     <Box m="2rem 0" />
