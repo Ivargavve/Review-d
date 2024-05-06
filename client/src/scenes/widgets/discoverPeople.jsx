@@ -5,6 +5,7 @@ import { setUsers, setViews, setFriendId, setFriendImagePath } from "state";
 import FlexBetween from "components/flexBetween";
 import ImageUser from "components/imageUser";
 import { useNavigate } from "react-router-dom";
+import WidgetWrap from "components/widgetWrap";
 
 const DiscoverPeople = () => {
   const dispatch = useDispatch();
@@ -52,7 +53,11 @@ const DiscoverPeople = () => {
   };
 
   return (
-    <Box sx={{ pd: "1.5rem 1.5rem 0.75rem 1.5rem", margin: "1rem" }}>
+    <WidgetWrap 
+        position="sticky"
+        top={118}
+        zIndex={100}
+    >
       <Typography
         color={palette.neutral.dark}
         variant="h5"
@@ -81,14 +86,14 @@ const DiscoverPeople = () => {
                   {`${user.firstName} ${user.lastName}`}
                 </Typography>
                 <Typography color={palette.neutral.medium} fontSize="0.75rem">
-                  New
+                    {user.email}
                 </Typography>
               </Box>
             </FlexBetween>
           </FlexBetween>
         ))}
       </Box>
-    </Box>
+    </WidgetWrap>
   );
 };
 

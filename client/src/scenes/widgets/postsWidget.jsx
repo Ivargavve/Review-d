@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "state";
 import PostWidget from "./postWidget";
+import { Typography } from "@mui/material";
 
 const PostsWidget = ({ userId, isProfile }) => {
   const dispatch = useDispatch();
@@ -66,33 +67,44 @@ const PostsWidget = ({ userId, isProfile }) => {
 
   return (
     <>
-      {filteredPosts.slice().reverse().map(
-        ({
-          _id,
-          userId,
-          firstName,
-          lastName,
-          course,
-          description,
-          picturePath,
-          userPicturePath,
-          likes,
-          comments,
-          timestamp,
-        }) => (
-          <PostWidget
-            key={_id}
-            postId={_id}
-            postUserId={userId}
-            name={`${firstName} ${lastName}`}
-            course={course}
-            description={description}
-            picturePath={picturePath}
-            userPicturePath={userPicturePath}
-            likes={likes}
-            comments={comments}
-            timestamp={timestamp}
-          />
+      {filteredPosts.length === 0 ? (
+        <Typography
+        padding={2}
+        textAlign="center"
+        variant="h6"
+        color="textSecondary"
+        >
+          User has no reviews
+          </Typography>
+      ) : (
+        filteredPosts.slice().reverse().map(
+          ({
+            _id,
+            userId,
+            firstName,
+            lastName,
+            course,
+            description,
+            picturePath,
+            userPicturePath,
+            likes,
+            comments,
+            timestamp,
+          }) => (
+            <PostWidget
+              key={_id}
+              postId={_id}
+              postUserId={userId}
+              name={`${firstName} ${lastName}`}
+              course={course}
+              description={description}
+              picturePath={picturePath}
+              userPicturePath={userPicturePath}
+              likes={likes}
+              comments={comments}
+              timestamp={timestamp}
+            />
+          )
         )
       )}
     </>

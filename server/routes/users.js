@@ -12,9 +12,9 @@ import { verifyToken } from "../middleware/auth.js";
 const router = express.Router();
 
 /* READ */
+router.get("/", verifyToken, getUsers);
 router.get("/:id/friends", verifyToken, getUserFriends);
 router.get("/:id", verifyToken, getUser);
-router.get("/", verifyToken, getUsers);
 
 /* UPDATE */
 router.patch("/:postUserId/impression", verifyToken, updateImpressions);
