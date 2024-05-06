@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import WidgetUser from "scenes/widgets/wUser";
 import PostsWidget from "scenes/widgets/postsWidget";
 import { useMediaQuery } from "@mui/material";
+import DiscoverPeople from "scenes/widgets/discoverPeople";
 
 const ProfilePage = () => {
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
@@ -33,6 +34,12 @@ const ProfilePage = () => {
                     mt={isNonMobileScreens ? undefined : "2rem"}
                 >
                     <PostsWidget userId={friendId} isProfile={true} />
+                </Box>
+                <Box
+                    flexBasis={isNonMobileScreens ? "40%" : "80%"}
+                    mt={isNonMobileScreens ? undefined : "2rem"}
+                >
+                    <DiscoverPeople />
                 </Box>
             </Box>
         </Box>

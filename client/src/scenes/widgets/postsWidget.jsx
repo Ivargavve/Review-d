@@ -8,6 +8,7 @@ const PostsWidget = ({ userId, isProfile }) => {
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
   const searchInput = useSelector((state) => state.searchInput);
+  const friendId = useSelector((state) => state.friendId);
 
   const getPosts = async () => {
     const response = await fetch("http://localhost:3001/posts", {
@@ -60,10 +61,12 @@ const PostsWidget = ({ userId, isProfile }) => {
     }
   }, [searchInput, posts, dispatch, isProfile]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // Filter posts by friendId if isProfile is true
+  const filteredPosts = isProfile ? posts.filter(post => post.userId === friendId) : posts;
 
   return (
     <>
-      {posts.slice().reverse().map(
+      {filteredPosts.slice().reverse().map(
         ({
           _id,
           userId,

@@ -8,6 +8,7 @@ const initialState = {
   searchInput: "",
   friendId: null,
   friendImagePath: "",
+  users: [],
 };
 
 export const authSlice = createSlice({
@@ -61,10 +62,13 @@ export const authSlice = createSlice({
     },
     setFriendImagePath: (state, action) => {
       state.friendImagePath = action.payload;
+    },
+    setUsers: (state, action) => {
+      state.users = action.payload;
     }
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost, setImpressions, setViews, setSearchInput, setFriendId, setFriendImagePath } =
+export const { setUsers, setMode, setLogin, setLogout, setFriends, setPosts, setPost, setImpressions, setViews, setSearchInput, setFriendId, setFriendImagePath } =
   authSlice.actions;
 export default authSlice.reducer;
