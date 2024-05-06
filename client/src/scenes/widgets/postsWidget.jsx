@@ -35,7 +35,7 @@ const PostsWidget = ({ userId, isProfile }) => {
       getPosts();
     } else {
       getPosts();
-    }
+    } // eslint-disable-next-line
   },  [isProfile, userId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const PostsWidget = ({ userId, isProfile }) => {
       post.description.toLowerCase().includes(searchInput.toLowerCase())
     );
     // Update posts in store with filteredPosts
-    dispatch(setPosts({ posts: filteredPosts }));
+    dispatch(setPosts({ posts: filteredPosts })); // eslint-disable-next-line
   }, [searchInput, dispatch, isProfile]); // Include isProfile as a dependency
 
   return (

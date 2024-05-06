@@ -18,7 +18,6 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
-    const { _id } = useSelector((state) => state.user); 
     const friendId = userId;
   
     const getUser = async () => {
@@ -114,7 +113,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
         </Box>
   
         <Divider />
-        <FriendList userId={_id} />
+        <FriendList userId={userId} />
       </WidgetWrap>
     );
   };

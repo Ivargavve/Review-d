@@ -24,7 +24,7 @@ const FriendList = ({ userId }) => {
 
   useEffect(() => {
     getFriends();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [] ); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Box sx={{pd: "1.5rem 1.5rem 0.75rem 1.5rem", margin: "1rem"}}>

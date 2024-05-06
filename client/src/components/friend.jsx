@@ -2,7 +2,7 @@ import { PersonAddOutlined, PersonRemoveOutlined } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setFriends, setViews, setClickedFriend } from "state";
+import { setFriends, setViews, setFriendId } from "state";
 import FlexBetween from "./flexBetween";
 import ImageUser from "./imageUser";
 
@@ -53,7 +53,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   };
 
   const handleClickFriend = () => {
-    dispatch(setClickedFriend({ friendId, friendImage: userPicturePath }));
+    dispatch(setFriendId(friendId));
     navigate(`/profile/${friendId}`);
     navigate(0);
     patchProfileViews();
