@@ -18,7 +18,7 @@ import { ManageAccountsOutlined } from "@mui/icons-material";
     const dark = palette.neutral.dark;
     const medium = palette.neutral.medium;
     const main = palette.neutral.main;
-    const friendId = userId;
+    const friendId = useSelector((state) => state.friendId);
   
     const getUser = async () => {
       const response = await fetch(`http://localhost:3001/users/${userId}`, {

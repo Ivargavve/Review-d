@@ -8,6 +8,7 @@ import { useMediaQuery } from "@mui/material";
 import DiscoverPeople from "scenes/widgets/discoverPeople";
 
 const ProfilePage = () => {
+    const { _id } = useSelector((state) => state.user);
     const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
     const friendId = useSelector((state) => state.friendId);
     const friendImagePath = useSelector((state) => state.friendImagePath);
@@ -22,7 +23,7 @@ const ProfilePage = () => {
                 justifyContent="center"
             >
                 <Box flexBasis={isNonMobileScreens ? "25%" : "60%"}>
-                    <WidgetUser userId={friendId} picturePath={friendImagePath} />
+                    <WidgetUser userId={_id} picturePath={friendImagePath} />
                     {isNonMobileScreens && (
                  <Box flexBasis="26%">
                     <Box m="2rem 0" />

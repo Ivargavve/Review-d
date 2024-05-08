@@ -12,22 +12,12 @@ export const getUser = async (req, res) => {
   }
 };
 
-export const getUsers = async () => {
+export const getUsers = async (req, res) => {
   try {
     const users = await User.find({});
-    // Map over the users array to extract required information
-    const mappedUsers = users.map((user) => ({
-      _id: user._id, // MongoDB document ID
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      picturePath: user.picturePath,
-    }));
-    return mappedUsers;
-  } catch (error) {
-    // Handle any errors
-    console.error("Error fetching users:", error);
-    throw error;
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };
 

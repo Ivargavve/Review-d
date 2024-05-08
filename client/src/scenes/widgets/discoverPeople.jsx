@@ -15,14 +15,18 @@ const DiscoverPeople = () => {
   const users = useSelector((state) => state.users);
   const friendId = useSelector((state) => state.friendId);
 
+
   const fetchUsers = async () => {
     try {
-      const response = await fetch(`http://localhost:3001/users`);
+      const response = await fetch("http://localhost:3001/users", {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (!response.ok) {
         throw new Error("Failed to fetch users");
       }
       const data = await response.json();
-      dispatch(setUsers(data));
+      dispatch(setUsers(data)); // Assuming setUsers correctly updates the users state
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -30,7 +34,7 @@ const DiscoverPeople = () => {
 
   useEffect(() => {
     fetchUsers();
-  }, [friendId]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleClickFriend = (friendId, userPicturePath) => {
     dispatch(setFriendId(friendId));
@@ -67,29 +71,19 @@ const DiscoverPeople = () => {
         Other Students
       </Typography>
       <Box display="flex" flexDirection="column" gap="1.5rem">
-        {users.map((user) => (
-          <FlexBetween key={user._id}>
-            <FlexBetween gap="1rem">
-              <ImageUser image={user.picturePath} size="55px" />
-              <Box onClick={() => handleClickFriend(user._id, user.picturePath)}>
-                <Typography
-                  color={palette.neutral.main}
-                  variant="h5"
-                  fontWeight="500"
-                  sx={{
-                    "&:hover": {
-                      color: palette.primary.light,
-                      cursor: "pointer",
-                    },
-                  }}
-                >
-                  {`${user.firstName} ${user.lastName}`}
+        {users.map(user => (
+          <FlexBetween key={user.id} onClick={() => handleClickFriend(user.id, user.picturePath)}>
+            <Box display="flex" gap="1rem">
+              <ImageUser image={user.picturePath}/>
+              <Box display="flex" flexDirection="column">
+                <Typography variant="h6" fontWeight="500">
+                  {user.firstName} {user.lastName}
                 </Typography>
-                <Typography color={palette.neutral.medium} fontSize="0.75rem">
-                    {user.email}
+                <Typography variant="body2" color={palette.neutral.medium}>
+                  {user.email}
                 </Typography>
               </Box>
-            </FlexBetween>
+            </Box>
           </FlexBetween>
         ))}
       </Box>
