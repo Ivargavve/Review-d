@@ -14,5 +14,7 @@ The backend will be developed using NodeJS, Express framework and with MongoDB a
 The frontend will be developed using React and Redux. Icons are used from the React library MUI. Theese files are all located inside the client folder. 
 
 ## Use
-Start the applicatin by navigating inside the TDDD27_2024_Reviewd folder. Use "cd server" to move inside the server folder. Start the server: "nodemon server"
-Use "cd" followed by "cd client" to move into the client folder. Start the client: "npm start"
+Start the applicatin by navigating inside the TDDD27_2024_Reviewd folder. Use "cd server" to move inside the server folder. Start the server: 
+''' nodemon server '''
+Use "cd" followed by "cd client" to move into the client folder. Start the client: 
+''' npm start '''
