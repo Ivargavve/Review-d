@@ -17,3 +17,9 @@ The frontend will be developed using React and Redux. Icons are used from the Re
 Start the applicatin by navigating inside the TDDD27_2024_Reviewd folder. Use "cd server" to move inside the server folder. Start the server: "nodemon server"
 Use "cd" followed by "cd client" to move into the client folder. Start the client: 
 "npm start"
+
+### Project Screencast link:
+https://youtu.be/HSQO53aPlyk
+
+### Code Screencast link:
+https://youtu.be/veCCpWmcPU4
